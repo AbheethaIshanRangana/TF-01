@@ -1,0 +1,21 @@
+name: Validate Terraform with tfsec
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Terraform and tfsec
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.4.0
+
+      - name: Validate Terraform code
+        run: terraform validate
