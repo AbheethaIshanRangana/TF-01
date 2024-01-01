@@ -27,20 +27,20 @@ resource "aws_ce_anomaly_subscription" "realtime_subscription" {
 
 }
 
-resource "aws_s3_bucket" "bad_backet" {
-  bucket = "bad-bucket"
-  acl = "authenticated-read"
+#resource "aws_s3_bucket" "bad_backet" {
+#  bucket = "bad-bucket"
+#  acl = "authenticated-read"
 
-  logging {
-    target_bucket = "access-logs"
-    target_prefix = "bad-bucket/logging"
-  }
+#  logging {
+#    target_bucket = "access-logs"
+#    target_prefix = "bad-bucket/logging"
+#  }
 
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
-    }
-  }
-}
+#  server_side_encryption_configuration {
+#    rule {
+#      apply_server_side_encryption_by_default {
+#        sse_algorithm = "AES256"
+#      }
+#    }
+#  }
+#}
